@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from "cors";
 import productRouter from './src/routes/ProductRoutes';
 import channelRouter from './src/routes/ChannelRoutes';
+import saleRouter from './src/routes/SaleService';
 
 async function main() {
 	const port = 3000
@@ -17,6 +18,7 @@ async function main() {
 
 	app.use('/products', productRouter);
 	app.use('/channels', channelRouter)
+	app.use('/sales', saleRouter)
 
 	app.listen(port, () => console.log(`http://localhost:${port}`));
 }
