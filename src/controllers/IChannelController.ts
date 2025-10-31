@@ -8,4 +8,5 @@ export default interface IChannelController {
     service: IChannelService
 
     getSalesByChannel(req: Request, res: Response): Promise<any>
+    getTopChannelBySaleCount(req: Request, res: Response): Promise<any>
 }

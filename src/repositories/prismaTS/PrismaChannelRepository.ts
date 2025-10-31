@@ -23,4 +23,17 @@ export default class PrismaChannelRepository implements IChannelRepository {
         });
     }
 
+    async getTopChannelBySaleCount(): Promise<any> {
+        return await prisma.channels.findFirst({
+            orderBy: {
+                sales: {
+                    _count: 'desc'
+                }
+            }
+        })
+    }
+
+    getTopChannelByRevenue(): Promise<any> {
+        throw new Error("Method not implemented.");
+    }
 }

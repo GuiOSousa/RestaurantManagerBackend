@@ -11,6 +11,10 @@ export default class PrismaChannelService implements IChannelService {
         this.repository = this.environment.channelRepository
     }
 
+    async getTopChannelBySaleCount(): Promise<any> {
+        return await this.repository.getTopChannelBySaleCount()
+    }
+
     getAll(): Promise<any> {
         throw new Error("Method not implemented.");
     }

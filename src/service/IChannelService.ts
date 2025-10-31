@@ -7,4 +7,5 @@ export default interface IChannelService {
 
     getAll(): Promise<any>
     getSalesByChannel(): Promise<any>
+    getTopChannelBySaleCount(): Promise<any>
 }
