@@ -19,7 +19,7 @@ export default class PrismaProductController implements IProductController {
     async getTopProducts(req: Request, res: Response): Promise<any> {
 		try {
 			const products = await this.service.getTopProducts(req.query);
-			return res.status(201).json(products);
+			return res.status(200).json(products);
 		} catch (error: any) {
 			return res.status(400).json({ message: error.message });
 		}

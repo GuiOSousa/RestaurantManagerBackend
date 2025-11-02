@@ -3,7 +3,8 @@ import bodyParser from 'body-parser';
 import cors from "cors";
 import productRouter from './src/routes/ProductRoutes';
 import channelRouter from './src/routes/ChannelRoutes';
-import saleRouter from './src/routes/SaleService';
+import saleRouter from './src/routes/SaleRoutes';
+import storeRouter from './src/routes/StoreRoutes';
 
 async function main() {
 	const port = 3000
@@ -12,15 +13,15 @@ async function main() {
 	app.use(cors())
 	
 
-	app.get("/", (req, res) => {
-		res.send("Servidor funcionando ✅");
-		});
+	app.get("/", (req, res) => {res.send("Servidor funcionando ✅")})
 
-	app.use('/products', productRouter);
+	app.use('/products', productRouter)
 	app.use('/channels', channelRouter)
 	app.use('/sales', saleRouter)
+	app.use('/stores', storeRouter)
 
-	app.listen(port, () => console.log(`http://localhost:${port}`));
+	//app.listen(port, () => console.log(`http://localhost:${port}`))
+	app.listen(port)
 }
 
 main().catch(console.error);

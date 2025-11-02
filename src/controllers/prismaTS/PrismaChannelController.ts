@@ -15,7 +15,7 @@ export default class PrismaChannelController implements IChannelController {
     async getTopChannelBySaleCount(req: Request, res: Response): Promise<any> {
         try {
             const data = await this.service.getTopChannelBySaleCount()
-            return res.status(201).json(data)
+            return res.status(200).json(data)
         } catch(err) {
             return res.status(400).json(err)
         }
@@ -24,7 +24,7 @@ export default class PrismaChannelController implements IChannelController {
     async getSalesByChannel(req: Request, res: Response): Promise<any> {
         try {
 			const data = await this.service.getSalesByChannel()
-			return res.status(201).json(data)
+			return res.status(200).json(data)
 		} catch (error: any) {
 			return res.status(400).json({ message: error.message });
 		}

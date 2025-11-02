@@ -9,20 +9,26 @@ export default class PrismaSaleController implements ISaleController {
 
     constructor(environment: IEnvironment){
         this.environment = environment
-        this.service = environment.saleService
+        this.service = this.environment.saleService
     }
 
     getAll(req: Request, res: Response): Promise<any> {
         throw new Error("Method not implemented.");
     }
-    getSalesByMonth(req: Request, res: Response): Promise<any> {
-        throw new Error("Method not implemented.");
+    
+    async getSalesByMonth(req: Request, res: Response): Promise<any> {
+        try {
+            const data = await this.service.getSalesByMonth()
+            return res.status(200).json(data)
+        } catch (err) {
+            return res.status(400).json(err)
+        }
     }
 
     async getTotalSales(req: Request, res: Response): Promise<any> {
         try {
             const data = await this.service.getTotalSales()
-            return res.status(201).json(data)
+            return res.status(200).json(data)
         } catch(err) {
             return res.status(400).json(err)
         }

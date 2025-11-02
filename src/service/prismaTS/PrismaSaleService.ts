@@ -14,8 +14,8 @@ export default class PrismaSaleService implements ISaleService {
     getAll(): Promise<any> {
         throw new Error("Method not implemented.");
     }
-    getSalesByMonth(): Promise<any> {
-        throw new Error("Method not implemented.");
+    async getSalesByMonth(): Promise<any> {
+        return await this.repository.getSalesByMonth()
     }
     async getTotalSales(): Promise<any> {
         return await this.repository.getTotalSales()
